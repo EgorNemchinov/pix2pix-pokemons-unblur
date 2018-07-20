@@ -8,9 +8,12 @@ train_size = 0.75
 test_size = 0.2
 
 dir = './data/pokemons/'
-os.mkdir(join(dir, 'train'))
-os.mkdir(join(dir, 'test'))
-os.mkdir(join(dir, 'val'))
+if not os.path.exists(join(dir, 'train')):
+    os.mkdir(join(dir, 'train'))
+if not os.path.exists(join(dir, 'test')):
+    os.mkdir(join(dir, 'test'))
+if not os.path.exists(join(dir, 'val')):
+    os.mkdir(join(dir, 'val'))
 
 imgs = [f for f in os.listdir(dir) if isfile(join(dir, f)) and
                                       f.endswith('jpg')]
